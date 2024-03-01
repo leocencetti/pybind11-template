@@ -10,6 +10,7 @@ project(
 option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
 option(PYTHON_BINDINGS "Build python bindings" ON)
 option(BUILD_DOC "Enable building the documentation" ON)
+option(BUILD_TESTING "Build C++ unit tests" ON)
 
 # Always export compile commands
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

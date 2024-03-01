@@ -73,6 +73,12 @@ cmake --build build
 PYTHONPATH=build/python/mylib11 pytest -vv python/tests/mylib11
 ```
 
+C++ code:
+```
+cmake -S . -B build -G Ninja
+cmake --build build --target test
+```
+
 ### Code coverage
 
 Once the python tests are running properly you can get a code coverage report
