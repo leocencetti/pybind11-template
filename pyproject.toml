@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mylib"
+authors = [
+    { name = "Leonardo Cencetti", email = "leonardo.cencetti@flybotix.com" },
+]
+
+requires-python = ">=3.9"
+dynamic = ["version"]
+dependencies = []
+
+[project.optional-dependencies]
+TEST = ["pytest", "coverage"]
+
+
+[tool.setuptools.dynamic]
+version = { attr = "mylib.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["python"]
+include = ["mylib"]
+exclude = ["tests"]
+
+[tool.isort]
+profile = "black"
+src_paths = ["python"]
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["python/tests/mylib"]
+
+[tool.ruff]
+output-format = "github"
