@@ -1,28 +1,24 @@
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["scikit-build-core>=0.11", "pybind11>=3.0"]
+build-backend = "scikit_build_core.build"
 
 [project]
 name = "mylib"
-authors = [
-    { name = "John Doe", email = "john.doe@mail.com" },
-]
-
+authors = [{ name = "John Doe", email = "john.doe@mail.com" }]
 requires-python = ">=3.9"
 dynamic = ["version"]
 dependencies = []
 
 [project.optional-dependencies]
-TEST = ["pytest", "coverage"]
+test = ["pytest", "coverage"]
 
+[tool.scikit-build]
+minimum-version = "build-system.requires"
+wheel.packages = ["python/mylib", "python/mylib11"]
 
-[tool.setuptools.dynamic]
-version = { attr = "mylib.__version__" }
-
-[tool.setuptools.packages.find]
-where = ["python"]
-include = ["mylib"]
-exclude = ["tests"]
+[tool.scikit-build.metadata.version]
+provider = "scikit_build_core.metadata.regex"
+input = "python/mylib/__init__.py"
 
 [tool.isort]
 profile = "black"
@@ -31,7 +27,7 @@ src_paths = ["python"]
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "-ra -q"
-testpaths = ["python/tests/mylib"]
+testpaths = ["python/tests"]
 
 [tool.ruff]
 output-format = "github"
