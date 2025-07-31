@@ -12,5 +12,6 @@ PYBIND11_MODULE(mylib11, m) {
     py::class_<MyClass>(m, "MyClass")
         .def(py::init<>())
         .def(py::init<int>(), py::arg("value"))
-        .def_readwrite("value", &MyClass::value);
+        .def_readwrite("value", &MyClass::value)
+        .def_static("get_origin", &MyClass::get_origin);
 }

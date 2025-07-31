@@ -12,5 +12,7 @@ class MyClass {
 
     MyClass(int value);
 
+    static std::string get_origin();
+
     int value;
 };
