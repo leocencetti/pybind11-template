@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "mylib"
 authors = [
-    { name = "Leonardo Cencetti", email = "leonardo.cencetti@flybotix.com" },
+    { name = "John Doe", email = "john.doe@mail.com" },
 ]
 
 requires-python = ">=3.9"
